@@ -3,7 +3,7 @@
 #include "sector.h"
 #include "window.h"
 
-#define NODES 1000
+#define NODES 2
 
 int main() {
 	srand(time(NULL));
@@ -11,6 +11,11 @@ int main() {
 
 	cNode *points = new cNode[NODES];
 		
+	points[0].Translate(primWin.winx / 2, primWin.winy / 2);
+//	points[0].Translate(0, 0);
+//	points[1].Translate(100, 0);
+	points[1].Translate(primWin.winx / 2 + 100, primWin.winy / 2);
+
 	cSector quad;
 
 	for(int i = 0; i < NODES; i++) {
@@ -29,17 +34,12 @@ int main() {
 	col.g = 255;
 	col.b = 255;
 	col.a = 255;
-	
 
-	for(int k = 0; k < 10000; k++) {	
-		for(int m = 0; m < NODES; m++) {
-				points[m].Translate(rand() % primWin.winx, rand() % primWin.winy);
-		}	
+	for(int k = 0; k < 10000; k++) {				
 		for(int i = 0; i < quad.faceCount; i++) {
-			tempA = *(quad.faces.at(i).a);
-			tempB = *(quad.faces.at(i).b);
-			primWin.DrawLine(tempA.x, tempA.y, tempB.x, tempB.y, col);
+			primWin.DrawLine(points[0].x, points[0].y, points[1].x, points[1].y, col);
 		}
+		points[1].Rotate(points[0].x, points[0].y, .001);
 		
 		primWin.Update();
 	}

@@ -9,8 +9,10 @@ class cSector;
 
 class cNode {
 public:
-	int32_t x = 0, y = 0;
-	void Translate(const int32_t nx, const int32_t ny);
+	double x = 0, y = 0;
+	
+	void Rotate(const double ax, const double ay, const double r);
+	void Translate(const double nx, const double ny);
 };
 
 class cLineDef {

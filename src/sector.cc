@@ -1,7 +1,16 @@
 #include <iostream>
+#include <cmath>
 #include "sector.h"
 
-void cNode::Translate(const int32_t nx, const int32_t ny) {
+void cNode::Rotate(const double ax, const double ay, const double r) {
+	double nx = (this->x - ax) * std::cos(r) - (this->y - ay) * std::sin(r);
+	double ny = (this->y - ay) * std::cos(r) + (this->x - ax) * std::sin(r);
+
+	this->x = nx + ax;
+	this->y = ny + ay;
+}
+
+void cNode::Translate(const double nx, const double ny) {
 	this->x = nx;
 	this->y = ny;
 }
