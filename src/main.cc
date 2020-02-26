@@ -1,8 +1,11 @@
 #include <iostream>
 
 #include "sector.h"
+#include "window.h"
 
 int main() {
+	cWindow primWin;
+
 	sNode *points = new sNode[4];
 	points[0].x = 10;
 	points[0].y = 10;
