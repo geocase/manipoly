@@ -33,8 +33,7 @@ int main() {
 
 	for(int k = 0; k < 10000; k++) {	
 		for(int m = 0; m < NODES; m++) {
-				points[m].x = rand() % primWin.winx;
-				points[m].y = rand() % primWin.winy;
+				points[m].Translate(rand() % primWin.winx, rand() % primWin.winy);
 		}	
 		for(int i = 0; i < quad.faceCount; i++) {
 			tempA = *(quad.faces.at(i).a);

@@ -10,6 +10,7 @@ class cSector;
 class cNode {
 public:
 	int32_t x = 0, y = 0;
+	void Translate(const int32_t nx, const int32_t ny);
 };
 
 class cLineDef {
