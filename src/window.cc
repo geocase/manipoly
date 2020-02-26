@@ -10,9 +10,7 @@ cWindow::cWindow() {
 	                                SDL_WINDOW_SHOWN);
 	
 	this->sdlren = SDL_CreateRenderer(this->sdlwin, -1, SDL_RENDERER_SOFTWARE);
-	if(this->sdlren && this->sdlwin) {
-		std::cout << "Created window and renderer" << std::endl;
-	} else {
+	if(!(this->sdlren && this->sdlwin)) {
 		std::cout << "SDL_ERROR" << std::endl << SDL_GetError() << std::endl;
 	}
 }
