@@ -3,7 +3,7 @@
 #include "sector.h"
 #include "window.h"
 
-#define NODES 10
+#define NODES 1000
 
 int main() {
 	srand(time(NULL));
@@ -29,12 +29,13 @@ int main() {
 	col.g = 255;
 	col.b = 255;
 	col.a = 255;
-	for(int m = 0; m < NODES; m++) {
-			points[m].x = rand() % primWin.winx;
-			points[m].y = rand() % primWin.winy;
-	}
+	
 
 	for(int k = 0; k < 10000; k++) {	
+		for(int m = 0; m < NODES; m++) {
+				points[m].x = rand() % primWin.winx;
+				points[m].y = rand() % primWin.winy;
+		}	
 		for(int i = 0; i < quad.faceCount; i++) {
 			tempA = *(quad.faces.at(i).a);
 			tempB = *(quad.faces.at(i).b);
