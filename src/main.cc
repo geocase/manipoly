@@ -9,7 +9,7 @@ int main() {
 	srand(time(NULL));
 	cWindow primWin;
 
-	sNode *points = new sNode[NODES];
+	cNode *points = new cNode[NODES];
 		
 	cSector quad;
 
@@ -21,8 +21,8 @@ int main() {
 		}
 	}
 
-	sNode tempA;
-	sNode tempB;
+	cNode tempA;
+	cNode tempB;
 
 	sColor_t col;
 	col.r = 255;

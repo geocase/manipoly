@@ -8,7 +8,7 @@ cLineDef::cLineDef(int32_t ax, int32_t ay, int32_t bx, int32_t by) {
 	this->b->y = by;
 }
 
-cLineDef::cLineDef(sNode *na, sNode *nb) {
+cLineDef::cLineDef(cNode *na, cNode *nb) {
 	this->a = na;
 	this->b = nb;
 }

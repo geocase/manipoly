@@ -3,19 +3,21 @@
 
 #include <vector>
 
-typedef struct {
-	int32_t x = 0, y = 0;
-} sNode;
-
+class cNode;
 class cLineDef;
 class cSector;
 
+class cNode {
+public:
+	int32_t x = 0, y = 0;
+};
+
 class cLineDef {
 public:
-	sNode *a, *b;
+	cNode *a, *b;
 
 	cLineDef(int32_t ax, int32_t ay, int32_t bx, int32_t by);
-	cLineDef(sNode *na, sNode *nb);
+	cLineDef(cNode *na, cNode *nb);
 };
 
 class cSector  {
