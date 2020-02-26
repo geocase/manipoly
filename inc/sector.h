@@ -12,10 +12,10 @@ class cSector;
 
 class cLineDef {
 public:
-	sNode a, b;
+	sNode *a, *b;
 
 	cLineDef(int32_t ax, int32_t ay, int32_t bx, int32_t by);
-	cLineDef(sNode na, sNode nb);
+	cLineDef(sNode *na, sNode *nb);
 };
 
 class cSector  {
