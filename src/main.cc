@@ -3,7 +3,7 @@
 #include "sector.h"
 #include "window.h"
 
-#define NODES 2
+#define NODES 4
 
 int main() {
 	srand(time(NULL));
@@ -11,10 +11,10 @@ int main() {
 
 	cNode *points = new cNode[NODES];
 		
-	points[0].Translate(primWin.winx / 2, primWin.winy / 2);
-//	points[0].Translate(0, 0);
-//	points[1].Translate(100, 0);
-	points[1].Translate(primWin.winx / 2 + 100, primWin.winy / 2);
+	points[0].Translate(primWin.winx / 2 - 100, primWin.winy / 2 - 100);
+	points[1].Translate(primWin.winx / 2 + 100, primWin.winy / 2 - 100);
+	points[2].Translate(primWin.winx / 2 + 100, primWin.winy / 2 + 100);
+	points[3].Translate(primWin.winx / 2 - 100, primWin.winy / 2 + 100);
 
 	cSector quad;
 
@@ -35,11 +35,15 @@ int main() {
 	col.b = 255;
 	col.a = 255;
 
-	for(int k = 0; k < 10000; k++) {				
+	for(int k = 0; k < 15000; k++) {				
 		for(int i = 0; i < quad.faceCount; i++) {
-			primWin.DrawLine(points[0].x, points[0].y, points[1].x, points[1].y, col);
+			tempA = *(quad.faces.at(i).a);
+			tempB = *(quad.faces.at(i).b);
+			primWin.DrawLine(tempA.x, tempA.y, tempB.x, tempB.y, col);
 		}
-		points[1].Rotate(points[0].x, points[0].y, .001);
+		for(int m = 0; m < NODES; m++) {
+			points[m].Rotate(primWin.winx / 2, primWin.winy / 2, .001);
+		} 
 		
 		primWin.Update();
 	}
