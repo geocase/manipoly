@@ -2,13 +2,14 @@
 
 #include "sector.h"
 #include "window.h"
+#include "input.h"
 
 #define NODES 4
 
 int main() {
 	srand(time(NULL));
 	cWindow primWin;
-
+	cInput primIn;
 	cNode *points = new cNode[NODES];
 		
 //	points[0].Translate(primWin.winx / 2 - 100, primWin.winy / 2 - 100);
@@ -38,11 +39,12 @@ int main() {
 			tempB = *(quad.faces.at(i).b);
 			primWin.DrawLine(tempA.x, tempA.y, tempB.x, tempB.y, col);
 		}
-		for(int m = 0; m < NODES; m++) {
-			points[m].Rotate(primWin.winx / 2, primWin.winy / 2, .001);
-		} 
+		points[0].Translate(primIn.mouseX, primIn.mouseY);
 		
 		primWin.Update();
+		primIn.Update();
+
+		std::cout << primIn.mouseX << ", " << primIn.mouseY << std::endl;
 	}
 	std::cout << "faces: " << quad.faceCount << std::endl;
 
