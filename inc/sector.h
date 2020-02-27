@@ -19,7 +19,7 @@ class cLineDef {
 public:
 	cNode *a, *b;
 
-	cLineDef(int32_t ax, int32_t ay, int32_t bx, int32_t by);
+	cLineDef(double ax, double ay, double bx, double by);
 	cLineDef(cNode *na, cNode *nb);
 };
 

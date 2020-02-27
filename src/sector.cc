@@ -15,7 +15,7 @@ void cNode::Translate(const double nx, const double ny) {
 	this->y = ny;
 }
 
-cLineDef::cLineDef(int32_t ax, int32_t ay, int32_t bx, int32_t by) {
+cLineDef::cLineDef(double ax, double ay, double bx, double by) {
 	this->a->x = ax;
 	this->a->y = ay;
 	this->b->x = bx;
