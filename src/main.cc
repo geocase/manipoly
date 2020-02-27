@@ -46,8 +46,6 @@ int main() {
 		points[2].Rotate(primWin.winx / 2, primWin.winy / 2, -.001);
 		primWin.Update();
 		primIn.Update();
-
-		std::cout << primIn.mouseX << ", " << primIn.mouseY << std::endl;
 	}
 	std::cout << "faces: " << quad.faceCount << std::endl;
 
