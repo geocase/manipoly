@@ -3,11 +3,11 @@
 
 #include <vector>
 
-class cNode;
-class cLineDef;
-class cSector;
+class cVertex;
+class cSegment;
+class cPolygon;
 
-class cNode {
+class cVertex {
 public:
 	double x = 0, y = 0;
 	
@@ -15,21 +15,21 @@ public:
 	void Translate(const double nx, const double ny);
 };
 
-class cLineDef {
+class cSegment {
 public:
-	cNode *a, *b;
+	cVertex *a, *b;
 
-	cLineDef(double ax, double ay, double bx, double by);
-	cLineDef(cNode *na, cNode *nb);
+	cSegment(double ax, double ay, double bx, double by);
+	cSegment(cVertex *na, cVertex *nb);
 };
 
-class cSector  {
+class cPolygon  {
 public:
-	std::vector<cLineDef> faces;
+	std::vector<cSegment> faces;
 	uint32_t faceCount = 0;
 
-	void AddFace(const cLineDef *l);
-	void BuildFromNodes(cNode *p, uint32_t nc);
+	void AddFace(const cSegment *l);
+	void BuildFromVertexArray(cVertex *p, uint32_t nc);
 };
 
 #endif

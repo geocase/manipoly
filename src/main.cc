@@ -10,7 +10,7 @@ int main() {
 	srand(time(NULL));
 	cWindow primWin;
 	cInput primIn;
-	cNode *points = new cNode[NODES];
+	cVertex *points = new cVertex[NODES];
 		
 	points[0].Translate(primWin.winx / 2 - 100, primWin.winy / 2 - 100);
 	points[1].Translate(primWin.winx / 2 + 100, primWin.winy / 2 - 100);
@@ -21,11 +21,11 @@ int main() {
 //		points[l].Translate(rand() % primWin.winx, rand() % primWin.winy);
 //	}
 
-	cSector quad;
-	quad.BuildFromNodes(points, NODES);	
+	cPolygon quad;
+	quad.BuildFromVertexArray(points, NODES);	
 
-	cNode tempA;
-	cNode tempB;
+	cVertex tempA;
+	cVertex tempB;
 
 	sColor_t col;
 	col.r = 255;
