@@ -6,11 +6,10 @@ void cVertex::Rotate(const double ax, const double ay, const double r) {
 	double nx = (this->x - ax) * std::cos(r) - (this->y - ay) * std::sin(r);
 	double ny = (this->y - ay) * std::cos(r) + (this->x - ax) * std::sin(r);
 
-	this->x = nx + ax;
-	this->y = ny + ay;
+	this->PlaceAt(nx + ax, ny + ay);
 }
 
-void cVertex::Translate(const double nx, const double ny) {
+void cVertex::PlaceAt(const double nx, const double ny) {
 	this->x = nx;
 	this->y = ny;
 }

@@ -12,7 +12,7 @@ public:
 	double x = 0, y = 0;
 	
 	void Rotate(const double ax, const double ay, const double r);
-	void Translate(const double nx, const double ny);
+	void PlaceAt(const double nx, const double ny);
 };
 
 class cSegment {
