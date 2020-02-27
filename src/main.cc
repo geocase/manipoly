@@ -12,14 +12,14 @@ int main() {
 	cInput primIn;
 	cNode *points = new cNode[NODES];
 		
-//	points[0].Translate(primWin.winx / 2 - 100, primWin.winy / 2 - 100);
-//	points[1].Translate(primWin.winx / 2 + 100, primWin.winy / 2 - 100);
-//	points[2].Translate(primWin.winx / 2 + 100, primWin.winy / 2 + 100);
-//	points[3].Translate(primWin.winx / 2 - 100, primWin.winy / 2 + 100);
+	points[0].Translate(primWin.winx / 2 - 100, primWin.winy / 2 - 100);
+	points[1].Translate(primWin.winx / 2 + 100, primWin.winy / 2 - 100);
+	points[2].Translate(primWin.winx / 2 + 100, primWin.winy / 2 + 100);
+	points[3].Translate(primWin.winx / 2 - 100, primWin.winy / 2 + 100);
 
-	for(int l = 0; l < NODES; l++) {
-		points[l].Translate(rand() % primWin.winx, rand() % primWin.winy);
-	}
+//	for(int l = 0; l < NODES; l++) {
+//		points[l].Translate(rand() % primWin.winx, rand() % primWin.winy);
+//	}
 
 	cSector quad;
 	quad.BuildFromNodes(points, NODES);	
@@ -39,8 +39,11 @@ int main() {
 			tempB = *(quad.faces.at(i).b);
 			primWin.DrawLine(tempA.x, tempA.y, tempB.x, tempB.y, col);
 		}
-		points[0].Translate(primIn.mouseX, primIn.mouseY);
-		
+		points[3].Translate(primIn.mouseX, primIn.mouseY);
+		points[1].Translate(primIn.mouseX, primIn.mouseY);
+		points[1].Rotate(primWin.winx / 2, primWin.winy / 2, 3.14);
+		points[0].Rotate(primWin.winx / 2, primWin.winy / 2, -.001);
+		points[2].Rotate(primWin.winx / 2, primWin.winy / 2, -.001);
 		primWin.Update();
 		primIn.Update();
 
