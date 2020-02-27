@@ -11,20 +11,17 @@ int main() {
 
 	cNode *points = new cNode[NODES];
 		
-	points[0].Translate(primWin.winx / 2 - 100, primWin.winy / 2 - 100);
-	points[1].Translate(primWin.winx / 2 + 100, primWin.winy / 2 - 100);
-	points[2].Translate(primWin.winx / 2 + 100, primWin.winy / 2 + 100);
-	points[3].Translate(primWin.winx / 2 - 100, primWin.winy / 2 + 100);
+//	points[0].Translate(primWin.winx / 2 - 100, primWin.winy / 2 - 100);
+//	points[1].Translate(primWin.winx / 2 + 100, primWin.winy / 2 - 100);
+//	points[2].Translate(primWin.winx / 2 + 100, primWin.winy / 2 + 100);
+//	points[3].Translate(primWin.winx / 2 - 100, primWin.winy / 2 + 100);
+
+	for(int l = 0; l < NODES; l++) {
+		points[l].Translate(rand() % primWin.winx, rand() % primWin.winy);
+	}
 
 	cSector quad;
-
-	for(int i = 0; i < NODES; i++) {
-		if(i + 1 > NODES - 1) {
-			quad.AddFace(new cLineDef(&points[i], &points[0]));
-		} else {
-			quad.AddFace(new cLineDef(&points[i], &points[i+1]));
-		}
-	}
+	quad.BuildFromNodes(points, NODES);	
 
 	cNode tempA;
 	cNode tempB;

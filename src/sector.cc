@@ -31,3 +31,13 @@ void cSector::AddFace(const cLineDef *l) {
 	this->faces.push_back(*l);	
 	this->faceCount++;
 }
+
+void cSector::BuildFromNodes(cNode *p, uint32_t nc) {
+	for(int i = 0; i < nc; i++) {
+		if(i + 1 > nc - 1) {
+			this->AddFace(new cLineDef(&p[i], &p[0]));
+		} else {
+			this->AddFace(new cLineDef(&p[i], &p[i+1]));
+		}
+	}
+}

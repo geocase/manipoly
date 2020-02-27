@@ -29,6 +29,7 @@ public:
 	uint32_t faceCount = 0;
 
 	void AddFace(const cLineDef *l);
+	void BuildFromNodes(cNode *p, uint32_t nc);
 };
 
 #endif
