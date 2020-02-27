@@ -52,7 +52,7 @@ Mkfile.old
 dkms.conf
 
 # Executables
-cad
+manipoly
 # Editor Files
 *.swp
 
