@@ -11,18 +11,23 @@ int main() {
 	cWindow primWin;
 	cInput primIn;
 	cVertex *points = new cVertex[NODES];
-		
+	/*
 	points[0].PlaceAt(primWin.winx / 2 - 100, primWin.winy / 2 - 100);
 	points[1].PlaceAt(primWin.winx / 2 + 100, primWin.winy / 2 - 100);
 	points[2].PlaceAt(primWin.winx / 2 + 100, primWin.winy / 2 + 100);
 	points[3].PlaceAt(primWin.winx / 2 - 100, primWin.winy / 2 + 100);
-
-//	for(int l = 0; l < NODES; l++) {
-//		points[l].PlaceAt(rand() % primWin.winx, rand() % primWin.winy);
-//	}
+	*/
+	for(int l = 0; l < NODES; l++) {
+		points[l].PlaceAt(rand() % primWin.winx, rand() % primWin.winy);
+	}
 
 	cPolygon quad;
-	quad.BuildFromVertexArray(points, NODES);	
+//	quad.BuildFromVertexArray(points, NODES);	
+
+	cPath p;
+	p.AddSegment(new cSegment(&points[0], &points[1]));
+	p.AddSegment(new cSegment(&points[1], &points[2]));
+	p.AddSegment(new cSegment(&points[2], &points[3]));
 
 	cVertex tempA;
 	cVertex tempB;
@@ -34,16 +39,11 @@ int main() {
 	col.a = 255;
 
 	for(int k = 0; k < 15000; k++) {				
-		for(int i = 0; i < quad.faceCount; i++) {
-			tempA = *(quad.faces.at(i).a);
-			tempB = *(quad.faces.at(i).b);
+		for(int i = 0; i < p.lineDefCount; i++) {
+			tempA = *(p.lineDefs.at(i).a);
+			tempB = *(p.lineDefs.at(i).b);
 			primWin.DrawLine(tempA.x, tempA.y, tempB.x, tempB.y, col);
 		}
-		points[3].PlaceAt(primIn.mouseX, primIn.mouseY);
-		points[1].PlaceAt(primIn.mouseX, primIn.mouseY);
-		points[1].Rotate(primWin.winx / 2, primWin.winy / 2, 3.14);
-		points[0].Rotate(primWin.winx / 2, primWin.winy / 2, -.001);
-		points[2].Rotate(primWin.winx / 2, primWin.winy / 2, -.001);
 		primWin.Update();
 		primIn.Update();
 	}
