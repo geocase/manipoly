@@ -45,3 +45,9 @@ void cPath::AddSegment(const cSegment *l) {
 	this->lineDefs.push_back(*l);
 	this->lineDefCount++;
 }
+
+void cPath::BuildFromVertexArray(cVertex *p, uint32_t nc) {
+	for(int i = 0; i < nc - 1; i++) {
+		this->AddSegment(new cSegment(&p[i], &p[i+1]));
+	}
+}

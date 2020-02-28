@@ -39,5 +39,6 @@ public:
 	std::vector<cSegment> lineDefs;
 	uint32_t lineDefCount = 0;
 	void AddSegment( const cSegment *l);
+	void BuildFromVertexArray(cVertex *p, uint32_t nc);
 };
 #endif
