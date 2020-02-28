@@ -7,6 +7,8 @@ class cVertex;
 class cSegment;
 class cPolygon;
 
+class cPath;
+
 class cVertex {
 public:
 	double x = 0, y = 0;
@@ -32,4 +34,10 @@ public:
 	void BuildFromVertexArray(cVertex *p, uint32_t nc);
 };
 
+class cPath {
+public:
+	std::vector<cSegment> lineDefs;
+	uint32_t lineDefCount = 0;
+	void AddSegment( const cSegment *l);
+};
 #endif

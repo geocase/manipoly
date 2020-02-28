@@ -40,3 +40,8 @@ void cPolygon::BuildFromVertexArray(cVertex *p, uint32_t nc) {
 		}
 	}
 }
+
+void cPath::AddSegment(const cSegment *l) {
+	this->lineDefs.push_back(*l);
+	this->lineDefCount++;
+}
