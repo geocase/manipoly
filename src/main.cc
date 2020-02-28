@@ -4,7 +4,7 @@
 #include "window.h"
 #include "input.h"
 
-#define NODES 4
+#define NODES 10
 
 int main() {
 	srand(time(NULL));
@@ -25,9 +25,7 @@ int main() {
 //	quad.BuildFromVertexArray(points, NODES);	
 
 	cPath p;
-	p.AddSegment(new cSegment(&points[0], &points[1]));
-	p.AddSegment(new cSegment(&points[1], &points[2]));
-	p.AddSegment(new cSegment(&points[2], &points[3]));
+	p.BuildFromVertexArray(points, NODES);	
 
 	cVertex tempA;
 	cVertex tempB;
@@ -47,7 +45,7 @@ int main() {
 		primWin.Update();
 		primIn.Update();
 	}
-	std::cout << "faces: " << quad.faceCount << std::endl;
+	std::cout << "linedefs: " << p.lineDefCount << std::endl;
 
 	return 0;
 }
