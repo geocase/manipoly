@@ -28,8 +28,8 @@ cSegment::cSegment(cVertex *na, cVertex *nb) {
 
 cVertex cSegment::GetLocationOfSubdividedVertex(double ratio) {
 	cVertex temp;
-	temp.x = (this->a->x - this->a->x) * ratio;
-	temp.y = (this->a->y - this->b->y) * ratio;
+	temp.x = (this->a->x - this->b->x) * ratio + this->b->x;
+	temp.y = (this->a->y - this->b->y) * ratio + this->b->y;
 
 	return temp;
 }
