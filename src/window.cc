@@ -21,6 +21,12 @@ void cWindow::DrawLine(uint32_t ax, uint32_t ay, uint32_t bx, uint32_t by, sColo
 	SDL_RenderDrawLine(this->sdlren, ax, ay, bx, by);
 }
 
+void cWindow::DrawLine(double ax, double ay, double bx, double by, sColor_t c) {
+	SDL_SetRenderDrawColor(this->sdlren, c.r, c.g, c.b, c.a);
+	
+	SDL_RenderDrawLine(this->sdlren, (int)ax, (int)ay, (int)bx, (int)by);
+}
+
 void cWindow::Update() {
 	SDL_RenderPresent(this->sdlren);
 	SDL_SetRenderDrawColor(this->sdlren, 0, 0, 0, 255);
