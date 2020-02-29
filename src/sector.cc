@@ -26,6 +26,14 @@ cSegment::cSegment(cVertex *na, cVertex *nb) {
 	this->b = nb;
 }
 
+cVertex cSegment::GetLocationOfSubdividedVertex(double ratio) {
+	cVertex temp;
+	temp.x = (this->a->x - this->a->x) * ratio;
+	temp.y = (this->a->y - this->b->y) * ratio;
+
+	return temp;
+}
+
 void cPolygon::AddFace(const cSegment *l) {
 	this->faces.push_back(*l);	
 	this->faceCount++;
