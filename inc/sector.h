@@ -24,7 +24,7 @@ public:
 	cSegment(double ax, double ay, double bx, double by);
 	cSegment(cVertex *na, cVertex *nb);
 
-	cVertex GetLocationOfSubdividedVertex(double ratio);
+	cVertex GetPointAt(double ratio);
 };
 
 class cPolygon  {

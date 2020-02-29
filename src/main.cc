@@ -48,9 +48,9 @@ int main() {
 		primWin.DrawLine(segB->a->x, segB->a->y, segB->b->x, segB->b->y, col);
 		primWin.DrawLine(segC->a->x, segC->a->y, segC->b->x, segC->b->y, col);
 
-		points[3] = segA->GetLocationOfSubdividedVertex(.1);
+		points[3] = segA->GetPointAt(.1);
 
-		points[5] = segB->GetLocationOfSubdividedVertex(.25);
+		points[5] = segB->GetPointAt(.25);
 
 		points[1].Rotate(points[0].x, points[0].y, .001);
 		/*

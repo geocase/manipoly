@@ -26,7 +26,7 @@ cSegment::cSegment(cVertex *na, cVertex *nb) {
 	this->b = nb;
 }
 
-cVertex cSegment::GetLocationOfSubdividedVertex(double ratio) {
+cVertex cSegment::GetPointAt(double ratio) {
 	cVertex temp;
 	temp.x = (this->a->x - this->b->x) * ratio + this->b->x;
 	temp.y = (this->a->y - this->b->y) * ratio + this->b->y;
